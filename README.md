@@ -48,7 +48,7 @@ La aplicación estará disponible en http://localhost:5000.
 
 ## Endpoints
 
-Autenticación
+### Autenticación
 
 POST /auth/
 
@@ -75,7 +75,7 @@ Respuesta de Error:
 
 Código de Estado: 401 si la autenticación falla.
 
-Gestión de Lenguajes
+### Gestión de Lenguajes
 
 GET /languages/
 
