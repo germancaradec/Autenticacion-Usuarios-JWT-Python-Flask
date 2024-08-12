@@ -38,8 +38,6 @@ MYSQL_DB=tu_base_de_datos
 
 MYSQL_PORT=3306
 
-## Uso
-
 ## Ejecución
 
 Ejecuta la aplicación:
@@ -53,6 +51,7 @@ La aplicación estará disponible en http://localhost:5000.
 Autenticación
 
 POST /auth/
+
 Descripción: Autentica a un usuario y devuelve un token JWT.
 
 Cuerpo de la Solicitud:
@@ -61,7 +60,7 @@ Cuerpo de la Solicitud:
   "password": "contraseña"
 }
 
-Respuesta Exitoso:
+Respuesta Exitosa:
 
 {
   "success": true,
@@ -79,13 +78,14 @@ Código de Estado: 401 si la autenticación falla.
 Gestión de Lenguajes
 
 GET /languages/
+
 Descripción: Obtiene una lista de lenguajes si el token JWT es válido.
 
 Encabezados de Solicitud:
 
 Authorization: Bearer <tu_token_jwt>
 
-Respuesta Exitoso:
+Respuesta Exitosa:
 
 {
   "languages": [
