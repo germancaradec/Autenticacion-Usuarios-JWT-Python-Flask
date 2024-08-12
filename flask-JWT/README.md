@@ -1,30 +1,110 @@
-# Python & Flask: Autenticación con JWT (JSON Web Tokens)
+# Flask JWT App
 
-Aprende a implementar mecanismos de Autenticación (Authentication) y Autorización (Authorization) usando JWT (JSON Web Tokens) en una RESTful API creada con Python y Flask y conectada a una base de datos MySQL.
+## Descripción
 
-<hr/>
+Esta aplicación Flask proporciona autenticación de usuarios mediante JSON Web Tokens (JWT). Incluye rutas para la autenticación de usuarios y la gestión de lenguajes, y utiliza MySQL para la gestión de datos.
 
-Primero, crear un entorno virtual:
-### `python -m virtualenv venv`
 
-Para instalar los paquetes necesarios:
-### `pip install -r requirements.txt`
+## Instalación
+1 Clona este repositorio en tu máquina local:
 
-<hr/>
+git clone https://github.com/germancaradec/Autenticacion-Usuarios-JWT-Python-Flask.git
 
-![](./preview1.png)
-<br/><br/>
-![](./preview2.png)
-<br/><br/>
-![](./preview3.png)
+2 Navega al directorio del proyecto:
 
-# 🌍 Por si deseas contactarme 👨‍💻 :
+3 Crea un entorno virtual e instálalo:
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Oscar_Garcia-0077B5?style=for-the-badge&logo=linkedin&logoColor=white&labelColor=101010)](https://pe.linkedin.com/in/uskokrum2010)
-[![YouTube](https://img.shields.io/badge/YouTube-UskoKruM2010-FF0000?style=for-the-badge&logo=youtube&logoColor=white&labelColor=101010)](https://youtube.com/uskokrum2010)
-[![Twitter](https://img.shields.io/badge/Twitter-@uskokrum2010-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white&labelColor=101010)](https://twitter.com/uskokrum2010)
-[![Instagram](https://img.shields.io/badge/Instagram-@uskokrum2010-E4405F?style=for-the-badge&logo=instagram&logoColor=white&labelColor=101010)](https://instagram.com/uskokrum2010)
-[![Facebook](https://img.shields.io/badge/Facebook-@uskokrum2010-1877F2?style=for-the-badge&logo=facebook&logoColor=white&labelColor=101010)](https://facebook.com/uskokrum2010)
-[![Udemy](https://img.shields.io/badge/Udemy-Oscar_Garcia-EC5252?style=for-the-badge&logo=udemy&logoColor=white&labelColor=101010)](https://www.udemy.com/course/sql-para-administracion-de-bases-de-datos-con-mysql/)
-[![Web](https://img.shields.io/badge/My_Website-uskokrum2010.com-14a1f0?style=for-the-badge&logo=dev.to&logoColor=white&labelColor=101010)](https://uskokrum2010.com)
-[![Email](https://img.shields.io/badge/uskokrum2010@gmail.com-mi_email_personal-D14836?style=for-the-badge&logo=gmail&logoColor=white&labelColor=101010)](mailto:uskokrum2010@gmail.com)
+python -m venv venv
+
+source venv/bin/activate   # En Windows usa `venv\Scripts\activate`
+
+4 Instala las dependencias:
+
+pip install -r requirements.txt
+
+5 Configura las variables de entorno en un archivo .env:
+
+ini
+Copiar código
+SECRET_KEY=tu_clave_secreta
+JWT_KEY=tu_clave_jwt
+MYSQL_HOST=localhost
+MYSQL_USER=tu_usuario
+MYSQL_PASSWORD=tu_contraseña
+MYSQL_DB=tu_base_de_datos
+MYSQL_PORT=3306
+Uso
+
+## Ejecución
+
+Ejecuta la aplicación:
+
+python index.py
+
+La aplicación estará disponible en http://localhost:5000.
+
+## Endpoints
+
+Autenticación
+
+POST /auth/
+Descripción: Autentica a un usuario y devuelve un token JWT.
+
+Cuerpo de la Solicitud:
+{
+  "username": "usuario",
+  "password": "contraseña"
+}
+
+Respuesta Exitoso:
+
+{
+  "success": true,
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+}
+
+Respuesta de Error:
+
+{
+  "message": "Unauthorized"
+}
+
+Código de Estado: 401 si la autenticación falla.
+
+Gestión de Lenguajes
+
+GET /languages/
+Descripción: Obtiene una lista de lenguajes si el token JWT es válido.
+
+Encabezados de Solicitud:
+
+Authorization: Bearer <tu_token_jwt>
+
+Respuesta Exitoso:
+
+{
+  "languages": [
+    {"id": 1, "name": "Español"},
+    {"id": 2, "name": "Inglés"}
+  ],
+  "message": "SUCCESS",
+  "success": true
+}
+
+Respuesta de Error:
+
+{
+  "message": "Unauthorized"
+}
+
+Código de Estado: 401 si el token es inválido o ha expirado.
+
+## Conceptos
+
+JWT (JSON Web Token): Utilizado para autenticar a los usuarios. El token se genera al iniciar sesión y debe ser incluido en los encabezados de las solicitudes para acceder a recursos protegidos.
+
+Blueprints: Utilizados para organizar las rutas en la aplicación Flask en módulos separados para una mejor gestión.
+
+CORS (Cross-Origin Resource Sharing): Configurado para permitir solicitudes desde diferentes orígenes.
+
+Configuración de Entorno: Las configuraciones como las claves secretas y la conexión a la base de datos se gestionan mediante variables de entorno para mayor seguridad.
