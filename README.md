@@ -108,7 +108,7 @@ Código de Estado: 401 si el token es inválido o ha expirado.
 
 JWT (JSON Web Token): Utilizado para autenticar a los usuarios. El token se genera al iniciar sesión y debe ser incluido en los encabezados de las solicitudes para acceder a recursos protegidos.
 
-Blueprints: Utilizados para organizar las rutas en la aplicación Flask en módulos separados para una mejor gestión.
+Blueprints: Utilizados para organizar las rutas en la aplicación Flask en módulos separados para una mejor gestión y mantenimiento.
 
 CORS (Cross-Origin Resource Sharing): Configurado para permitir solicitudes desde diferentes orígenes.
 
