@@ -24,16 +24,21 @@ pip install -r requirements.txt
 
 5 Configura las variables de entorno en un archivo .env:
 
-ini
-Copiar código
 SECRET_KEY=tu_clave_secreta
+
 JWT_KEY=tu_clave_jwt
+
 MYSQL_HOST=localhost
+
 MYSQL_USER=tu_usuario
+
 MYSQL_PASSWORD=tu_contraseña
+
 MYSQL_DB=tu_base_de_datos
+
 MYSQL_PORT=3306
-Uso
+
+## Uso
 
 ## Ejecución
 
